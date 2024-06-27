@@ -8,13 +8,13 @@ export default function Experience() {
 
   const experiences = [
     {
-      date: "2013 - 2016",
+      date: "2013 ~ 2016",
       title: "中原大學",
       role: "數位後製室工讀生",
       skills: ["Edius", "基本攝影"],
     },
     {
-      date: "2017 - 2023",
+      date: "2017 ~ 2023",
       title: "旺泓有限公司",
       role: "業務助理",
       skills: [
