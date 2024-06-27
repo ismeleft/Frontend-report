@@ -1,6 +1,5 @@
-import { useEffect, useRef } from 'react';
-import Matter from 'matter-js';
-import Nav from './components/Nav/Nav';
+import { useEffect, useRef } from "react";
+import Matter from "matter-js";
 
 export const App = () => {
   const boxRef = useRef(null);
@@ -27,26 +26,32 @@ export const App = () => {
       },
     });
 
-    const floor = Bodies.rectangle(890, 800 , 1980, 20, {
+    const floor = Bodies.rectangle(890, 800, 1980, 20, {
       isStatic: true,
       render: {
-        fillStyle: 'blue',
+        fillStyle: "blue",
       },
     });
 
     const createText = (text, x, y) => {
-      const textWidth = 20; 
+      const textWidth = 20;
       const textHeight = 20;
-      const textBody = Bodies.rectangle(x, y, text.length * textWidth, textHeight, {
-        restitution: 0.9,
-        render: {
-          fillStyle: 'transparent',
-        },
-        label: text,
-      });
+      const textBody = Bodies.rectangle(
+        x,
+        y,
+        text.length * textWidth,
+        textHeight,
+        {
+          restitution: 0.9,
+          render: {
+            fillStyle: "transparent",
+          },
+          label: text,
+        }
+      );
 
-      const textElement = document.createElement('div');
-      textElement.className = 'word';
+      const textElement = document.createElement("div");
+      textElement.className = "word";
       textElement.textContent = text;
       document.body.appendChild(textElement);
 
@@ -55,16 +60,16 @@ export const App = () => {
         element: textElement,
         render() {
           const { x, y, angle } = this.body.position;
-          this.element.style.position = 'absolute';
+          this.element.style.position = "absolute";
           this.element.style.left = `${x - textWidth / 2}px`;
           this.element.style.top = `${y - textHeight / 2}px`;
           this.element.style.transform = `rotate(${angle}rad)`;
-        }
+        },
       };
     };
 
-    const name = createText('WEN-YING', 150, 0);
-    const job = createText('Front-end Developer', 100, 100);
+    const name = createText("WEN-YING", 150, 0);
+    const job = createText("Front-end Developer", 100, 100);
 
     Composite.add(engine.world, [floor, name.body, job.body]);
 
@@ -82,12 +87,11 @@ export const App = () => {
     <div
       ref={boxRef}
       style={{
-        width:"100vw",
-        height:"100vh",
+        width: "100vw",
+        height: "100vh",
         // backgroundColor:"#777"
       }}
     >
-      <Nav/>
       <canvas ref={canvasRef} />
     </div>
   );
