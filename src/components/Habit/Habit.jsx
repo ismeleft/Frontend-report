@@ -1,7 +1,7 @@
-export default function Experience() {
-    return (
-        <div>
-            <h1>Experience</h1>
-        </div>
-    );
+export default function Habit() {
+  return (
+    <div>
+      <h1>Habit</h1>
+    </div>
+  );
 }

@@ -1,19 +1,17 @@
 import Nav from "../components/Nav/Nav";
-// import App from "../App";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 
 export default function Root({ children }) {
   return (
     <>
-      <div id="nav">
+      <div>
         <Nav />
-        {/* <App /> */}
-        {children}
+        <main>{children}</main>
       </div>
     </>
   );
 }
 
 Root.propTypes = {
-  children: propTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
 };
