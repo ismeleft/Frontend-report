@@ -1,5 +1,6 @@
 import { Stack, Typography, Box, Collapse } from "@mui/material";
 import { useState, useEffect } from "react";
+import WorkIcon from "@mui/icons-material/Work";
 import style from "./Experience.module.scss";
 
 export default function Experience() {
@@ -69,17 +70,18 @@ export default function Experience() {
     <Stack
       className={animate ? style.experience : ""}
       direction="column"
-      spacing={4}
+      spacing={6}
       alignItems={"center"}
       justifyContent={"center"}
-      sx={{ padding: "50px 20px", height: "90vh" }}
+      sx={{ padding: "50px 40px", minHeight: "100vh" }}
     >
       <Typography
         variant="h2"
         sx={{
           marginBottom: 4,
           fontWeight: "bold",
-          textShadow: "1px 1px 2px rgba(0,0,0,0.2)",
+          textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+          color: "#FFA726",
         }}
       >
         Experience
@@ -87,7 +89,8 @@ export default function Experience() {
       {experiences.map((exp, index) => (
         <Box
           key={index}
-          width={"80%"}
+          width={"100%"}
+          maxWidth="800px"
           className={style.card}
           style={{
             display: clicked !== null && clicked !== index ? "none" : "block",
@@ -95,7 +98,10 @@ export default function Experience() {
           }}
         >
           <Stack onClick={() => setClicked(clicked === index ? null : index)}>
-            <Typography variant="h4">{exp.date}</Typography>
+            <Stack direction="row" alignItems="center" spacing={2}>
+              <WorkIcon sx={{ color: "#FFA726" }} />
+              <Typography variant="h4">{exp.date}</Typography>
+            </Stack>
             <Typography variant="h6">{exp.title}</Typography>
             <Typography>{exp.role}</Typography>
           </Stack>
@@ -107,7 +113,7 @@ export default function Experience() {
                 sx={{
                   position: "absolute",
                   left: 100,
-                  top: "-120%",
+                  top: "-160%",
                   zIndex: -1,
                   color: "#FFF",
                 }}
@@ -120,7 +126,7 @@ export default function Experience() {
                 sx={{
                   position: "absolute",
                   right: 100,
-                  top: "120%",
+                  top: "160%",
                   zIndex: -1,
                   color: "#FFF",
                 }}
@@ -141,7 +147,7 @@ export default function Experience() {
               }}
             >
               <Typography variant="h6">Skills：</Typography>
-              <Stack direction="row" spacing={1}>
+              <Stack direction="row" spacing={1} flexWrap="wrap">
                 {exp.skills.map((skill, skillIndex) => (
                   <Typography key={skillIndex} className={style.skills}>
                     {skill}
