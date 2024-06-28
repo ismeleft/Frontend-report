@@ -8,13 +8,14 @@ export default function Experience() {
 
   const experiences = [
     {
-      date: "2013 ~ 2016",
+      date: "2013 / 09 ~ 2016 / 06",
       title: "中原大學",
       role: "數位後製室工讀生",
       skills: ["Edius", "基本攝影"],
+      keywords: ["PHOTO", "VIDEO"],
     },
     {
-      date: "2017 ~ 2023",
+      date: "2017 / 07 ~ 2023 / 11",
       title: "旺泓有限公司",
       role: "業務助理",
       skills: [
@@ -24,12 +25,39 @@ export default function Experience() {
         "進出口報關",
         "半導體產業相關知識",
       ],
+      keywords: ["CUSTOMER", "CONTACT"],
+    },
+    {
+      date: "2023 / 07 ～ 2023 / 12",
+      title: "Wehelp Bootcamp",
+      skills: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Python Flask",
+        "MySQL",
+        "API 串接",
+        "AWS EC2",
+        "Next.js",
+        "Firebase",
+        "Vercel",
+      ],
+      keywords: ["LEARNING", "CODING"],
     },
     {
       date: "2024 ～",
       title: "弈樂科技",
       role: "Web前端工程師",
-      skills: ["React", "Zustand", "Immer", "Mock API", "Material UI"],
+      skills: [
+        "React",
+        "Redux",
+        "Zustand",
+        "Immer",
+        "API 串接",
+        "Mock API",
+        "Material UI",
+      ],
+      keywords: ["FRONTEND", "EXERCISE"],
     },
   ];
 
@@ -44,7 +72,7 @@ export default function Experience() {
       spacing={4}
       alignItems={"center"}
       justifyContent={"center"}
-      sx={{ padding: 2 }}
+      sx={{ padding: "50px 20px", height: "90vh" }}
     >
       <Typography
         variant="h2"
@@ -57,12 +85,50 @@ export default function Experience() {
         Experience
       </Typography>
       {experiences.map((exp, index) => (
-        <Box key={index} width={"80%"} className={style.card}>
+        <Box
+          key={index}
+          width={"80%"}
+          className={style.card}
+          style={{
+            display: clicked !== null && clicked !== index ? "none" : "block",
+            position: "relative",
+          }}
+        >
           <Stack onClick={() => setClicked(clicked === index ? null : index)}>
             <Typography variant="h4">{exp.date}</Typography>
             <Typography variant="h6">{exp.title}</Typography>
             <Typography>{exp.role}</Typography>
           </Stack>
+          {clicked === index && (
+            <>
+              <Typography
+                variant="h1"
+                className={style.keyWordLeft}
+                sx={{
+                  position: "absolute",
+                  left: 100,
+                  top: "-120%",
+                  zIndex: -1,
+                  color: "#FFF",
+                }}
+              >
+                {exp.keywords[0]}
+              </Typography>
+              <Typography
+                variant="h1"
+                className={style.keyWordRight}
+                sx={{
+                  position: "absolute",
+                  right: 100,
+                  top: "120%",
+                  zIndex: -1,
+                  color: "#FFF",
+                }}
+              >
+                {exp.keywords[1]}
+              </Typography>
+            </>
+          )}
           <Collapse in={clicked === index} timeout="auto" unmountOnExit>
             <Stack
               direction="row"
