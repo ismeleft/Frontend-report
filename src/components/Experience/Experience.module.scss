@@ -1,47 +1,57 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+$primary-color: #1565c0;
+$secondary-color: #ffa726;
+// $background-gradient: linear-gradient(135deg, #e3f2fd 0%, #1565c0 100%);
+$text-color: #ffffff;
 
 .experience {
   opacity: 0;
   transform: translateY(50px);
   animation: slide-up 0.5s forwards;
-  background: #09585ab0;
+  color: $text-color;
   padding: 20px;
   border-radius: 10px;
+  // background-color: rgba(255, 255, 255, 0.2);
 }
 
-
-
 .card {
-  border: 1px solid #ec9a29;
+  border: 1px solid $secondary-color;
+  background-color: #ffffffe3;
+  color: #666;
+  backdrop-filter: blur(10px);
   border-radius: 10px;
   padding: 20px 50px;
   margin: 20px 0;
   position: relative;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    background-color: #ec9a29;
-    color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: $text-color;
     cursor: pointer;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
   }
 }
 
 .skills {
-  background-color: #ec9a29;
+  background-color: $secondary-color;
+  color: $primary-color;
   border-radius: 5px;
   padding: 5px 10px;
-  color: white;
   margin: 5px;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
-    background-color: #4d320e;
-    color: white;
+    background-color: darken($secondary-color, 10%);
+    color: $text-color;
+    transform: scale(1.05);
   }
 }
 
-.keyWordLeft{
+.keyWordLeft {
   font-family: "Playfair Display", serif;
   animation: moveLeft 1s ease-in-out;
   font-optical-sizing: auto;
@@ -49,12 +59,12 @@
   font-style: italic;
 }
 
-
-.keyWordRight{
+.keyWordRight {
   font-family: "Playfair Display", serif;
   animation: moveRight 1s ease-in-out;
   font-optical-sizing: auto;
   font-weight: 600;
+  font-style: italic;
 }
 
 @keyframes slide-up {
@@ -63,7 +73,6 @@
     transform: translateY(0);
   }
 }
-
 
 @keyframes moveLeft {
   0% {
@@ -80,5 +89,20 @@
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .experience {
+    padding: 30px 20px;
+  }
+
+  .card {
+    padding: 15px 25px;
+  }
+
+  .keyWordLeft,
+  .keyWordRight {
+    display: none;
   }
 }
