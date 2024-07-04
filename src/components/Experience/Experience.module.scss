@@ -1,130 +1,149 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
-$primary-color: #1565c0;
-$secondary-color: #ffa726;
-$text-color: #ffffff;
-
-.container {
-  width: 100vw;
-  min-height: 100vh;
-  position: relative;
-  overflow: auto;
+:root {
+  --color-primary: #3e66a0;
+  --cover-placeholder: var(--color-primary);
 }
 
-.background {
-  width: 100vw;
+.accordion {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  display: flex;
+  flex: 1 1 auto;
+  overflow: hidden;
   height: 100vh;
+}
+
+.accordionItem {
+  --cover: var(--cover-placeholder);
+  background: var(--cover);
+  background-position: center center;
+  background-size: cover;
+  background-color: var(--cover-placeholder);
+  background-blend-mode: linear-gradient(
+    180deg,
+    rgba(15, 15, 15, 0) 0%,
+    #111111 100%
+  );
+  position: relative;
+  flex-grow: 1;
+  height: 100%;
+  width: 100px;
+  min-width: 2.05rem;
+  transition: all 0.3s ease-in-out;
+
+  &:hover,
+  &:focus-within,
+  &.active {
+    flex-grow: 2;
+    width: 50%;
+    background-color: transparent;
+
+    .accordionTitle {
+      &--hover-hide {
+        max-height: 0;
+        opacity: 0;
+      }
+      &--hover-show {
+        opacity: 1;
+      }
+    }
+    .accordionDescription {
+      opacity: 1;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.accordionAction {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   top: 0;
   left: 0;
-  z-index: -1;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: background-image 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 15, 15, 0.75);
+  background: linear-gradient(180deg, rgba(15, 15, 15, 0) 0%, #111111 100%);
+  text-decoration: none;
 }
 
-.experience {
+.accordionTitle {
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  letter-spacing: 0.5rem;
+  padding: 1rem 0rem;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
+
+  &--hover-show {
+    opacity: 0;
+    width: 100%;
+  }
+
+  &--hero {
+    font-size: 4rem;
+    line-height: 100%;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+.accordionAside {
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  right: -40px;
+  transform: rotate(90deg) translate(-50%, -50%);
+  transform-origin: right bottom;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+
+  h2 {
+    color: white;
+    font-family: "Roboto Condensed";
+    margin: 0;
+    font-size: 1.5rem; /* 調整文字大小 */
+  }
+
+  &:before {
+    content: "+";
+    color: #fff;
+    margin-right: 0.5rem; /* 調整加號的位置 */
+    font-size: 2rem;
+    display: inline-block;
+  }
+}
+
+.accordionContent {
+  padding: 2rem;
+  width: 100%;
+  text-align: left;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.accordionDescription {
+  color: white;
+  font-weight: 500;
+  line-height: 120%;
+  overflow-y: auto;
+  overflow-x: hidden;
   opacity: 0;
-  transform: translateY(50px);
-  animation: slide-up 0.5s forwards;
-  color: $text-color;
-  padding: 20px;
-  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
 }
 
-.card {
-  border: 1px solid $secondary-color;
-  background-color: rgba(255, 255, 255, 0.85);
-  color: #333;
-  backdrop-filter: blur(10px);
-  border-radius: 10px;
-  padding: 20px 30px;
-  margin: 20px 0;
-  position: relative;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transform: translateY(-5px);
-  }
-}
-
-.activeCard {
-  background-color: rgba(255, 255, 255, 1);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
-}
-
-.skills {
-  background-color: $secondary-color;
-  color: $primary-color;
-  border-radius: 5px;
-  padding: 5px 10px;
-  margin: 5px;
-  transition: all 0.2s ease-in-out;
-
-  &:hover {
-    background-color: darken($secondary-color, 10%);
-    color: $text-color;
-    transform: scale(1.05);
-  }
-}
-
-.keyWordLeft {
-  font-family: "Playfair Display", serif;
-  animation: moveLeft 1s ease-in-out;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: italic;
-}
-
-.keyWordRight {
-  font-family: "Playfair Display", serif;
-  animation: moveRight 1s ease-in-out;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: italic;
-}
-
-@keyframes slide-up {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes moveLeft {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes moveRight {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@media (max-width: 768px) {
-  .experience {
-    padding: 30px 20px;
-  }
-
-  .card {
-    padding: 15px 20px;
-  }
-
-  .keyWordLeft,
-  .keyWordRight {
-    display: none;
-  }
+.accordionLine {
+  width: 70%;
+  height: 1px;
+  background-color: #ffffffc7;
 }
