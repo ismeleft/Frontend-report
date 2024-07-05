@@ -8,6 +8,7 @@ import Root from "./routes/root";
 import ErrorPage from "./errorPage";
 import Education from "./components/Education/Education";
 import Target from "./components/Target/Target";
+import App from "./App";
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,7 @@ const router = createBrowserRouter([
     element: (
       <Root>
         <Outlet />
+        <App/>
       </Root>
     ),
     errorElement: <ErrorPage />,
