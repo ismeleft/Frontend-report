@@ -47,7 +47,7 @@ export default function Experience() {
       photo: "/image/helloworld.jpeg",
     },
     {
-      date: "2024 ～",
+      date: "2024 / 03 ～",
       title: "弈樂科技",
       role: "Web前端工程師",
       skills: [
@@ -85,6 +85,11 @@ export default function Experience() {
               <h3 className={style.accordionDescription}>
                 {exp.role} <br />
                 <br />
+                {exp.skills.map((skill, index) => (
+                  <span key={index} className={style.accordionSkill}>
+                    {skill}
+                  </span>
+                ))}
                 <hr className={style.accordionLine} />
                 <br />
                 {exp.date}
