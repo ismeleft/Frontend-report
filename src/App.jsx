@@ -1,12 +1,7 @@
-import FallingText from "./components/FallingText/FallingText";
+// import FallingText from "./components/FallingText/FallingText";
 
 export const App = () => {
-
-  return (
-    <>
-      <FallingText/>
-    </>
-  )
+  return <>{/* <FallingText/> */}</>;
 };
 
 export default App;

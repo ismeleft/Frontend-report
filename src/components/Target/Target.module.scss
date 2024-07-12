@@ -1,0 +1,64 @@
+/* Target.module.scss */
+.timeline {
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  margin: 2em auto;
+  height: 90vh;
+}
+
+.events-wrapper {
+  position: relative;
+  height: 20%;
+  margin: 0 40px;
+  overflow: hidden;
+}
+
+.events {
+  position: absolute;
+  left: 0;
+  top: 40px;
+  height: 2px;
+  background: #dfdfdf;
+  width: 100%; /* 确保事件容器的宽度 */
+}
+
+.filling-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 2px;
+  background-color: #7b9d6f;
+  transform-origin: left center;
+  transition: width 0.3s;
+}
+
+.event {
+  position: absolute;
+  bottom: -5px;
+  font-size: 1.3rem;
+  padding-bottom: 15px;
+  color: #fffdfd;
+  transform: translateX(-50%);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.event::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  border: 2px solid #dfdfdf;
+  background-color: #f8f8f8;
+  transform: translateX(-50%);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.event:hover::after,
+.event.selected::after {
+  background-color: #7b9d6f;
+  border-color: #7b9d6f;
+}
