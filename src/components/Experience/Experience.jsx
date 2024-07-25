@@ -2,7 +2,7 @@ import { useState } from "react";
 import style from "./Experience.module.scss";
 
 export default function Experience() {
-  const [clicked, setClicked] = useState(null);
+  const [hovered, setHovered] = useState(null);
 
   const experiences = [
     {
@@ -70,33 +70,32 @@ export default function Experience() {
         <li
           key={index}
           className={`${style.accordionItem} ${
-            clicked === index ? style.active : ""
+            hovered === index ? style.active : ""
           }`}
           style={{ "--cover": `url(${exp.photo})` }}
-          onClick={() => setClicked(clicked === index ? null : index)}
+          onMouseEnter={() => setHovered(index)}
+          onMouseLeave={() => setHovered(null)}
         >
           <div className={style.accordionAction}>
+            <div className={style.accordionAside}>
+              <h2 className={style.accordionTitle}>{exp.title}</h2>
+            </div>
             <div className={style.accordionContent}>
               <h2
                 className={`${style.accordionTitle} ${style.accordionTitleHero}`}
               >
                 {exp.title}
               </h2>
-              <h3 className={style.accordionDescription}>
-                {exp.role} <br />
-                <br />
-                {exp.skills.map((skill, index) => (
-                  <span key={index} className={style.accordionSkill}>
+              <h3 className={style.accordionDescription}>{exp.role}</h3>
+              <div className={style.skillsContainer}>
+                {exp.skills.map((skill, skillIndex) => (
+                  <span key={skillIndex} className={style.accordionSkill}>
                     {skill}
                   </span>
                 ))}
-                <hr className={style.accordionLine} />
-                <br />
-                {exp.date}
-              </h3>
-            </div>
-            <div className={style.accordionAside}>
-              <h2 className={style.accordionTitle}>{exp.title}</h2>
+              </div>
+              <hr className={style.accordionLine} />
+              <h2>{exp.date}</h2>
             </div>
           </div>
         </li>
