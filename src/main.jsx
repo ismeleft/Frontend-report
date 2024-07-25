@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Experience from "./components/Experience/Experience";
 import Habit from "./components/Habit/Habit";
 import Root from "./routes/root";
@@ -13,14 +13,13 @@ import App from "./App";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: (
-      <Root>
-        <Outlet />
-        <App/>
-      </Root>
-    ),
+    element: <Root />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        index: true,
+        element: <App />,
+      },
       {
         path: "education",
         element: <Education />,

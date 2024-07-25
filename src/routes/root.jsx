@@ -1,17 +1,15 @@
 import Nav from "../components/Nav/Nav";
-import PropTypes from "prop-types";
+import { Outlet } from "react-router-dom";
 
-export default function Root({ children }) {
+export default function Root() {
   return (
     <>
       <div>
         <Nav />
-        <main>{children}</main>
+        <main>
+          <Outlet />
+        </main>
       </div>
     </>
   );
 }
-
-Root.propTypes = {
-  children: PropTypes.node.isRequired,
-};
