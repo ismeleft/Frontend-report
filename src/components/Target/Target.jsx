@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from "react";
-import { Typography, Box, Paper } from "@mui/material";
+import { Typography, Box, Paper, Stack } from "@mui/material";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./Target.module.scss";
 
