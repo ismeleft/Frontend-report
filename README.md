@@ -14,6 +14,9 @@
 - framer-motion
 - scss module
 
+## 備註
+
+圖片中，除了生活照，其餘皆來自 unsplash。
 
 ## 安裝和運行
 
