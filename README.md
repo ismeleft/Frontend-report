@@ -1,9 +1,41 @@
-# React + Vite
+# Ying's Corner
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+這是 Ying 的自我介紹網站專案。
 
-Currently, two official plugins are available:
+![image](https://github.com/user-attachments/assets/c8649802-2209-4f26-8a5d-91c4f40a2fc7)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# Frontend-report
+
+
+## 相關技術
+
+- React
+- Vite
+- react-router-dom
+- framer-motion
+- scss module
+
+
+## 安裝和運行
+
+1. 複製儲存庫：
+   ```
+   git clone https://github.com/your-username/yings-corner.git
+   ```
+
+2. 進入專案目錄：
+   ```
+   cd yings-corner
+   ```
+
+3. 安裝依賴：
+   ```
+   npm install
+   ```
+
+4. 運行開發伺服器：
+   ```
+   npm run dev
+   ```
+
+5. 在瀏覽器中開啟 `http://localhost:5173` 查看網站。
+
