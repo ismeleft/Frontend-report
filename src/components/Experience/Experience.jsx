@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import style from "./Experience.module.scss";
 
 export default function Experience() {
   const [hovered, setHovered] = useState(null);
+
+  const handleInteraction = useCallback((index) => {
+    setHovered(index);
+  }, []);
 
   const experiences = [
     {
@@ -73,8 +77,10 @@ export default function Experience() {
             hovered === index ? style.active : ""
           }`}
           style={{ "--cover": `url(${exp.photo})` }}
-          onMouseEnter={() => setHovered(index)}
-          onMouseLeave={() => setHovered(null)}
+          onMouseEnter={() => handleInteraction(index)}
+          onMouseLeave={() => handleInteraction(null)}
+          onTouchStart={() => handleInteraction(index)}
+          onTouchEnd={() => handleInteraction(null)}
         >
           <div className={style.accordionAction}>
             <div className={style.accordionAside}>

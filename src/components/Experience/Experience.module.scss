@@ -9,11 +9,17 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  height: 100%;
+  height: 100vh;
   display: flex;
+  flex-direction: row;
   flex: 1 1 auto;
   overflow: hidden;
-  height: 100vh;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    height: auto;
+    height: 100vh;
+  }
 }
 
 .accordionItem {
@@ -35,12 +41,24 @@
   transition: all 0.3s ease-in-out;
   overflow: hidden;
 
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 80px;
+    min-height: 2.05rem;
+  }
+
   &:hover,
   &:focus-within,
   &.active {
     flex-grow: 2;
     width: 50%;
     background-color: transparent;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      height: auto;
+      min-height: 300px;
+    }
 
     .accordionTitle {
       &--hover-hide {
@@ -74,6 +92,11 @@
   background-color: rgba(15, 15, 15, 0.75);
   background: linear-gradient(180deg, rgba(15, 15, 15, 0) 0%, #111111 100%);
   text-decoration: none;
+
+  @media (max-width: 768px) {
+    position: relative;
+    height: auto;
+  }
 }
 
 .accordionTitle {
@@ -85,6 +108,11 @@
   transition: all 0.3s ease-in-out;
   overflow: hidden;
 
+  @media (max-width: 768px) {
+    font-size: 1.2rem;
+    letter-spacing: 0.3rem;
+  }
+
   &--hover-show {
     opacity: 0;
     width: 100%;
@@ -95,6 +123,10 @@
     line-height: 100%;
     font-weight: 700;
     text-transform: uppercase;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
   }
 }
 
@@ -110,43 +142,77 @@
   align-items: center;
   flex-wrap: nowrap;
 
+  @media (max-width: 768px) {
+    transform: none;
+    position: static;
+    padding: 0.5rem;
+    width: 100%;
+    background-color: rgba(15, 15, 15, 0.75);
+    right: 10px;
+    top: 10px;
+  }
+
   h2 {
     color: white;
     font-family: "Roboto Condensed";
     margin: 0;
-    font-size: 1.5rem; /* 調整文字大小 */
+    font-size: 1.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+    }
   }
 
   &:before {
     content: "+";
     color: #fff;
-    margin-right: 0.5rem; /* 調整加號的位置 */
+    margin-right: 0.5rem;
     font-size: 2rem;
     display: inline-block;
+
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+    }
   }
 }
 
 .accordionContent {
   padding: 2rem;
   width: 100%;
-  height: auto; // 改為自動高度
-  min-height: 40%; // 設置最小高度
+  height: auto;
+  min-height: 40%;
   text-align: left;
   line-height: 1.5;
   font-size: 1rem;
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    display: none;
+  }
+
+  .active & {
+    @media (max-width: 768px) {
+      display: flex;
+    }
+  }
 }
 
 .accordionDescription {
   color: white;
   font-weight: 500;
   line-height: 120%;
-  overflow-wrap: break-word; // 允許長單詞換行
-  word-break: break-word; // 在適當的地方斷行
-  max-height: none; // 移除最大高度限制
-  opacity: 1; // 確保始終可見
+  overflow-wrap: break-word;
+  word-break: break-word;
+  max-height: none;
+  opacity: 1;
+
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
 }
+
 .accordionLine {
   width: 70%;
   height: 1px;
@@ -172,6 +238,11 @@
   font-size: 1rem;
   transition: all 0.3s ease;
   margin-bottom: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.8rem;
+    padding: 0.1rem 0.4rem;
+  }
 
   &:hover {
     background-color: rgba(255, 255, 255, 0.3);
