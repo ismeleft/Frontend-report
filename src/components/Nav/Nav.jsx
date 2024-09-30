@@ -71,8 +71,21 @@ export default function Nav() {
       position="sticky"
       sx={{ background: "transparent", boxShadow: "none" }}
     >
-      <Toolbar sx={{ maxWidth: "1200px", margin: "0 auto", width: "100%" }}>
-        <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+      <Toolbar
+        sx={{
+          maxWidth: "1200px",
+          margin: "0 auto",
+          width: "100%",
+          textAlign: "center",
+        }}
+      >
+        <Box
+          sx={{
+            flexGrow: 1,
+            display: "flex",
+            alignItems: "center",
+          }}
+        >
           <a href="/" style={{ textDecoration: "none", color: "#FFA500" }}>
             <img
               src="/image/wave.png"
