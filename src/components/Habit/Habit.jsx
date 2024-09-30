@@ -15,28 +15,24 @@ import { useInView } from "react-intersection-observer";
 
 const CONCERT = [
   {
-    singer: "李泳知",
-    image: "/image/youngji.jpeg",
+    singer: "法蘭",
+    image: "/image/fran.jpeg",
   },
   {
     singer: "BLACKPINK",
     image: "/image/blackpink.jpeg",
   },
   {
-    singer: "babymonster",
-    image: "/image/babymonster.jpeg",
+    singer: "張惠妹",
+    image: "/image/amei.jpeg",
   },
   {
-    singer: "DASUTT",
-    image: "/image/dasutt.jpeg",
+    singer: "田馥甄",
+    image: "/image/hebe.jpeg",
   },
   {
     singer: "Coldplay",
     image: "/image/coldplay.jpeg",
-  },
-  {
-    singer: "霓虹綠洲音樂節",
-    image: "/image/neonOasis.png",
   },
   {
     singer: "縉Jin",
@@ -47,12 +43,28 @@ const CONCERT = [
     image: "/image/enno.jpeg",
   },
   {
-    singer: "張惠妹",
-    image: "/image/amei.jpeg",
+    singer: "霓虹綠洲音樂節",
+    image: "/image/neonOasis.png",
   },
   {
-    singer: "田馥甄",
-    image: "/image/hebe.jpeg",
+    singer: "The fin.",
+    image: "/image/thefin.jpeg",
+  },
+  {
+    singer: "李泳知",
+    image: "/image/youngji.jpeg",
+  },
+  {
+    singer: "BABYMONSTER",
+    image: "/image/babymonster.jpeg",
+  },
+  {
+    singer: "DASUTT",
+    image: "/image/dasutt.jpeg",
+  },
+  {
+    singer: "黃玠",
+    image: "/image/dadado.jpeg",
   },
 ];
 
